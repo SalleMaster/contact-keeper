@@ -11,6 +11,12 @@ import './App.css';
 import ContactState from './context/contact/ContactState';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
+import setAuthToken from './utils/setAuthToken';
+import PrivateRoute from './components/routing/PrivateRoute';
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   return (
@@ -20,13 +26,13 @@ const App = () => {
           <Router>
             <Fragment>
               <Navbar />
-              <div className='container'>
+              <div className="container">
                 <Alerts />
                 <Switch>
-                  <Route exact path='/' component={Home} />
-                  <Route exact path='/about' component={About} />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
+                  <PrivateRoute exact path="/" component={Home} />
+                  <Route exact path="/about" component={About} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
                 </Switch>
               </div>
             </Fragment>
