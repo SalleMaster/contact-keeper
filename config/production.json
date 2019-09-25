@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://Sasa123:Sasa123@contactkeeper-uxyzn.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
